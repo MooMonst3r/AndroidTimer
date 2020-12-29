@@ -10,11 +10,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //TODO: Fix reset bug. When pressed during countdown changes text but old countdown still goes
-//TODO: Add Pause
+//TODO: Fix pause button
 public class MainActivity extends AppCompatActivity {
 
     public boolean started = false;
     public TextView counterText;
+    public CountDownTimer counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     started = true;
                     long seconds = 60;
                     TimeConverter tc = new TimeConverter(seconds);
-                    new CountDownTimer(tc.getSeconds() * 1000, 1000) {
+                    counter = new CountDownTimer(tc.getSeconds() * 1000, 1000) {
                         public void onTick(long millisUntilFinished) {
                             tc.setSeconds(millisUntilFinished / 1000);
                             counterText.setText(tc.toString());
@@ -43,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }.start();
                 }
+            }
+        });
+
+        Button pauseButton = (Button) findViewById(R.id.pauseButton);
+        pauseButton.setOnClickListener( new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                counter.cancel();
             }
         });
 

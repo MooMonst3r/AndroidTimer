@@ -44,6 +44,7 @@
         style="@style/Widget.Neumorph.Button"
         android:layout_width="113dp"
         android:layout_height="53dp"
+        android:layout_marginTop="64dp"
         android:drawablePadding="8dp"
         android:text="RESET"
         android:textColor="#656565"
@@ -64,5 +65,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/counterCardView" />
 
+    <soup.neumorphism.NeumorphButton
+        android:id="@+id/pauseButton"
+        style="@style/Widget.Neumorph.Button"
+        android:layout_width="113dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="172dp"
+        android:drawablePadding="8dp"
+        android:text="PAUSE"
+        android:textColor="#656565"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/counterCardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
