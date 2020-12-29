@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+//TODO: Fix reset bug. When pressed during countdown changes text but old countdown still goes
+//TODO: Add Pause
 public class MainActivity extends AppCompatActivity {
 
     public boolean started = false;
@@ -21,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.counterText = (TextView) findViewById(R.id.counterTextView);
 
-        Button button = (Button) findViewById(R.id.startButton);
-        button.setOnClickListener( new View.OnClickListener() {
+        Button startButton = (Button) findViewById(R.id.startButton);
+        startButton.setOnClickListener( new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -41,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }.start();
                 }
+            }
+        });
+
+        Button resetButton = (Button) findViewById(R.id.resetButton);
+        resetButton.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                counterText.setText("01:00");
+                started = false;
             }
         });
     }
